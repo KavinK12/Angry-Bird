@@ -1,13 +1,13 @@
 class Box{
-   constructor(x,y,width,height){
+   constructor(x,y){
 
     var ghf = {
         restitution : 1
       }
      
-      this.body = Bodies.rectangle(x,y,width,height,ghf);
-      this.width = width;
-      this.height = height;
+      this.body = Bodies.rectangle(x,y,70,70,ghf);
+      this.width = 70;
+      this.height = 70;
       World.add(myWorld,this.body);
 
    }
@@ -15,9 +15,14 @@ class Box{
    display() {
 
        var pos = this.body.position;
+       var angle = this.body.angle;
+       push();
+       translate(pos.x, pos.y);
+       rotate(angle);
        fill("red");
        rectMode(CENTER);
-       rect(pos.x,pos.y,this.width,this.height);
+       rect(0,0,this.width,this.height);
+       pop();
        
    }
 }
